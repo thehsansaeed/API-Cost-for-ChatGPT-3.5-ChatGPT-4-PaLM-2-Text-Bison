@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PaLM 2 Text Bison</title>
+  <style>
+    /* Add your custom CSS styles here */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <h2>PaLM 2 Text Bison</h2>
+  <table>
+    <tr>
+      <th>No of Requests</th>
+      <th>Number of Characters</th>
+      <th>Cost per 1000 Characters</th>
+      <th>Number of Characters / Request</th>
+      <th>Daily Cost</th>
+      <th>Weekly Cost</th>
+      <th>Monthly Cost</th>
+      <th>Yearly Cost</th>
+    </tr>
+    <!-- Add table rows with data here -->
+    <tr>
+      <td><input type="number" id="numRequestsInput1" oninput="calculateCost(1)"></td>
+      <td><input type="number" id="numCharsInput1" oninput="calculateCost(1)"></td>
+      <td>$0.0010</td>
+      <td id="numCharsPerRequest1"></td>
+      <td id="dailyCost1"></td>
+      <td id="weeklyCost1"></td>
+      <td id="monthlyCost1"></td>
+      <td id="yearlyCost1"></td>
+    </tr>
+    <!-- Add other rows based on your data -->
+  </table>
+
+  <script>
+    // Add your JavaScript code here
+    // Calculate the cost based on the given data
+    function calculateCost(rowNum) {
+      const costPer1000Chars = 0.0010;
+      const numRequestsInput = document.getElementById(`numRequestsInput${rowNum}`).value;
+      const numCharsInput = document.getElementById(`numCharsInput${rowNum}`).value;
+
+      const numRequests = parseInt(numRequestsInput);
+      const numChars = parseInt(numCharsInput);
+      const numCharsPerRequest = numChars * numRequests;
+      const dailyCost = (numCharsPerRequest / 1000) * costPer1000Chars;
+      const weeklyCost = dailyCost * 7;
+      const monthlyCost = dailyCost * 30;
+      const yearlyCost = dailyCost * 365;
+
+      document.getElementById(`numCharsPerRequest${rowNum}`).textContent = numCharsPerRequest.toLocaleString();
+      document.getElementById(`dailyCost${rowNum}`).textContent = `$${dailyCost.toFixed(4)}`;
+      document.getElementById(`weeklyCost${rowNum}`).textContent = `$${weeklyCost.toFixed(4)}`;
+      document.getElementById(`monthlyCost${rowNum}`).textContent = `$${monthlyCost.toFixed(4)}`;
+      document.getElementById(`yearlyCost${rowNum}`).textContent = `$${yearlyCost.toFixed(4)}`;
+    }
+
+    // Call the calculateCost function with default values on page load
+    window.onload = function () {
+      calculateCost(1);
+    };
+  </script>
+</body>
+</html>
