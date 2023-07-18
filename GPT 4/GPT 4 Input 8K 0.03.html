@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GPT 4 Input 8K 0.03</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #dddddd;
+      text-align: center;
+      padding: 8px;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    input[type="number"] {
+      width: 100px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h2>GPT 4 Input 8K 0.03</h2>
+  <table>
+    <tr>
+      <th>No of Request</th>
+      <th>Number of Words</th>
+      <th>No of Tokens</th>
+      <th>Number of Words / Request</th>
+      <th>Daily Cost</th>
+      <th>Weekly Cost</th>
+      <th>Monthly Cost</th>
+      <th>Yearly Cost</th>
+    </tr>
+    <tr>
+      <td><input type="number" id="noOfRequests" value="1" onchange="calculateCost()"></td>
+      <td><input type="number" id="numOfWords" value="750" onchange="calculateCost()"></td>
+      <td id="numOfTokens"></td>
+      <td id="wordsPerRequest"></td>
+      <td id="dailyCost"></td>
+      <td id="weeklyCost"></td>
+      <td id="monthlyCost"></td>
+      <td id="yearlyCost"></td>
+    </tr>
+  </table>
+
+  <script>
+    function calculateCost() {
+      const numOfRequests = parseFloat(document.getElementById('noOfRequests').value);
+      const numOfWords = parseFloat(document.getElementById('numOfWords').value);
+
+      const numOfTokens = Math.ceil(numOfWords / 750 * 1000);
+      const wordsPerRequest = numOfRequests * numOfWords;
+      const dailyCost = (numOfWords / 750) * 0.03 * numOfRequests; // Modified formula
+      const weeklyCost = dailyCost * 7;
+      const monthlyCost = dailyCost * 30;
+      const yearlyCost = dailyCost * 365;
+
+      document.getElementById('numOfTokens').innerText = numOfTokens;
+      document.getElementById('wordsPerRequest').innerText = wordsPerRequest;
+      document.getElementById('dailyCost').innerText = '$' + dailyCost.toFixed(2);
+      document.getElementById('weeklyCost').innerText = '$' + weeklyCost.toFixed(2);
+      document.getElementById('monthlyCost').innerText = '$' + monthlyCost.toFixed(2);
+      document.getElementById('yearlyCost').innerText = '$' + yearlyCost.toFixed(2);
+    }
+
+    // Calculate initial cost
+    calculateCost();
+  </script>
+</body>
+</html>
