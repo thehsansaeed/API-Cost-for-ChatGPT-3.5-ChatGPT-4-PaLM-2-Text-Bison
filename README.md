@@ -53,6 +53,9 @@ JavaScript: The calculator's dynamic functionality is implemented using JavaScri
 
 Contributions to the API Cost Calculator are welcome! If you find any bugs, issues, or have suggestions for improvements, please feel free to open an issue or submit a pull request.
 
+[#Licence ]([url](https://github.com/thehsansaeed/API-Cost-for-ChatGPT-3.5-ChatGPT-4-PaLM-2-Text-Bison/blob/main/License.md))
+
+
 #Disclaimer
 
 The API cost estimates provided by the calculator are based on predefined pricing models at the time of development. However, actual costs may vary based on changes to the API pricing or usage patterns. It is recommended to check the official API documentation or consult the provider for the most up-to-date pricing information.
