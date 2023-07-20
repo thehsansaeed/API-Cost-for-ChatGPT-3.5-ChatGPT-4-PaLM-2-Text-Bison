@@ -54,6 +54,7 @@ JavaScript: The calculator's dynamic functionality is implemented using JavaScri
 Contributions to the API Cost Calculator are welcome! If you find any bugs, issues, or have suggestions for improvements, please feel free to open an issue or submit a pull request.
 
 [#Licence ]([url](https://github.com/thehsansaeed/API-Cost-for-ChatGPT-3.5-ChatGPT-4-PaLM-2-Text-Bison/blob/main/License.md))
+https://github.com/thehsansaeed/API-Cost-for-ChatGPT-3.5-ChatGPT-4-PaLM-2-Text-Bison/blob/main/License.md
 
 
 #Disclaimer
